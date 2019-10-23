@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Lista encadeada utilizando celula cabeça */
+/* Lista encadeada utilizando celula cabeï¿½a */
 
 typedef struct cel celula;
 struct cel{
@@ -16,7 +16,7 @@ struct cel{
     struct cel *ant;
 };
 
-/* O ponteiro 'p' é a cabeça da lista*/
+/* O ponteiro 'p' ï¿½ a cabeï¿½a da lista*/
 
 void insereInicio(int x, celula *p) /* Insere no inicio da lista*/
 {
@@ -24,7 +24,7 @@ void insereInicio(int x, celula *p) /* Insere no inicio da lista*/
    nova = malloc (sizeof (celula));
    nova->dado = x;
    nova->prox = p->prox;
-   /* verifica se a lista está vazia*/
+   /* verifica se a lista estï¿½ vazia*/
    if (p->prox != NULL)
    {
       q = nova->prox;
@@ -36,24 +36,24 @@ void insereInicio(int x, celula *p) /* Insere no inicio da lista*/
 
 void insereUltimo(int x, celula *p) /* Insere no final da lista*/
 {
-	celula *q;
+	celula *q; // serve como auxiliar
 	celula *nova;
-	nova = malloc (sizeof (celula));
+	nova = malloc (sizeof (celula)); 
 	nova->dado = x;
 	q = p;
 	while (q->prox != NULL)
 		q = q->prox;
 
-	q->prox = nova;
-	nova->ant = q;
-	nova->prox = NULL;
+	q->prox = nova; // antiga ultima celula recebe a nova
+	nova->ant = q; // nova celula recebe conteÃºdo de entrada
+	nova->prox = NULL; // NÃ£o "aponta" para outra celula
 }
 
 
 void buscaEremove (int y, celula *p)
 {
-   celula *w, *q;
-   w = p;
+   celula *w, *q; // servem como auixiliares para nÃ£o perder algum nÃ³ durante a operaÃ§Ã£o
+   w = p; 
    q = p->prox;
    while (q != NULL && q->dado != y) {
       w = q;
@@ -93,9 +93,9 @@ void libera (celula *ini)
     celula *p;
     p=ini;
     while (p != NULL) {
-        celula *q = p->prox; /* guarda referência para o próximo elemento*/
-        free(p); /* libera a memória apontada por p */
-        p = q; /* faz p apontar para o próximo */
+        celula *q = p->prox; /* guarda referï¿½ncia para o prï¿½ximo elemento*/
+        free(p); /* libera a memï¿½ria apontada por p */
+        p = q; /* faz p apontar para o prï¿½ximo */
     }
 }
 
@@ -111,7 +111,7 @@ int main()
     //fim_inicializa
 
     do{
-        system("cls");
+        system("cls"); // limpa a tela a cada iteraÃ§Ã£o
         printf("\nConteudo da lista: ");
         if (p->prox != NULL){
             imprime(p);
